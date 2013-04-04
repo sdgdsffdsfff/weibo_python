@@ -3,6 +3,9 @@ weibo_python
 
 毕业设计中基于给定微博数据的反作弊识别，用python开发。
 
+进度：
+    只对MICRO_BLOG.txt进行了解析
+
 程序运行：
     python main.py
 
