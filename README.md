@@ -10,9 +10,13 @@ weibo_python
     python main.py
 
 目录结构：
+
     conf: 项目配置
+
     data: 数据文件,由于数据太大上传到github太慢，所以没有git push data文件夹下的数据文件.
+
     export: 输出文件，目前有两个，分别为垃圾用户黑名单和垃圾微博黑名单
+
     main.py: 主程序
 
 策略1：
