@@ -1,0 +1,2 @@
+average:35
+variance:41797.9694961

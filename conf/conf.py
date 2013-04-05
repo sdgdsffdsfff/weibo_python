@@ -16,11 +16,23 @@ EXPORT_PATH = PROJECT_PATH + '/export'
 #微博主题路径
 MICRO_BLOG = DATA_PATH + '/MICRO_BLOG.txt'
 
-#输出的用户名黑名单路径
-USERNAME_BLACKLIST_FILE = EXPORT_PATH + '/username_blacklist.txt'
+#用户黑名单文件
+USER_BLACKLIST_FILE = EXPORT_PATH + '/user_blacklist.txt'
 
-#输出的微博内容黑名单路径
-WEIBO_CONTENT_BLACKLIST_FILE = EXPORT_PATH + '/weibo_content_blacklist.txt'
+#微博内容黑名单文件
+BLOG_BLACKLIST_FILE = EXPORT_PATH + '/blog_blacklist.txt'
+
+#微博长度文件
+BLOG_LENGTH_FILE = EXPORT_PATH + '/blog_length.txt'
+
+#微博长度统计文件
+BLOG_LENGTH_STATS_FILE = EXPORT_PATH + '/blog_length_stats.txt'
+
+#用户发微博总数的文件
+USER_TOTAL_BLOGS = EXPORT_PATH + '/user_total_blogs.txt'
+
+#文件中列与列的分隔符
+FILE_SPLIT_STRING = '|!|'
 
 #每一行内容分割后用户名的数组下标
 USER_NAME_INDEX = 3
@@ -29,7 +41,7 @@ USER_NAME_INDEX = 3
 USER_NICKNAME_INDEX = 4
 
 #每一行内容分割后微博内容的数组下标
-WEIBO_CONTENT_INDEX = 6
+BLOG_CONTENT_INDEX = 6
 
 #每一行内容分割后发布时间的数组下标
 PUBLISH_TIME_INDEX = 8
