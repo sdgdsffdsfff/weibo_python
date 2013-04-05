@@ -15,7 +15,7 @@ weibo_python
 
     data: 数据文件,未上传到github.
 
-    export: 输出文件，目前有两个，分别为垃圾用户黑名单和垃圾微博黑名单
+    export: 输出文件
 
     main.py: 主程序
 
