@@ -16,12 +16,6 @@ EXPORT_PATH = PROJECT_PATH + '/export'
 #微博主题路径
 MICRO_BLOG = DATA_PATH + '/MICRO_BLOG.txt'
 
-#关键词黑名单路径
-WORDS_BLACKLIST = CONF_PATH + '/words_blacklist'
-
-#微博评论路径
-MICRO_BLOG_COMMENT = DATA_PATH + '/MICRO_BLOG_COMMENT.txt'
-
 #输出的用户名黑名单路径
 USERNAME_BLACKLIST_FILE = EXPORT_PATH + '/username_blacklist.txt'
 
@@ -29,7 +23,10 @@ USERNAME_BLACKLIST_FILE = EXPORT_PATH + '/username_blacklist.txt'
 WEIBO_CONTENT_BLACKLIST_FILE = EXPORT_PATH + '/weibo_content_blacklist.txt'
 
 #每一行内容分割后用户名的数组下标
-USERNAME_INDEX = 4
+USER_NAME_INDEX = 3
+
+#每一行内容分割后用户昵称的数组下标
+USER_NICKNAME_INDEX = 4
 
 #每一行内容分割后微博内容的数组下标
 WEIBO_CONTENT_INDEX = 6
@@ -37,11 +34,8 @@ WEIBO_CONTENT_INDEX = 6
 #每一行内容分割后发布时间的数组下标
 PUBLISH_TIME_INDEX = 8
 
-#同一个用户连续发微博的最短时间限制,以秒为单位
-PUBLISH_MIN_TIME = 5
+#中策略情况下，同一个用户连续发布的微博最大数量
+STRATEGY_NUM = 15
 
-#某用户中策略的次数最低限制
-USER_HIT_STRATERGY_LIMIT = 50
-
-#某微博中策略的次数最低限制
-WEIBO_HIT_STRATERGY_LIMIT = 100
+#中策略情况下，一定微博数量的头尾相差最长时间, 以秒为单位
+STRATEGY_TIME = 30
