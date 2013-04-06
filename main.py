@@ -16,6 +16,7 @@ dict_user_everyday_blogs = {} #记录每个用户每天发的微博数量
 dict_user_everyday_blogs_stats = {} #每个用户每天发的微博数量的统计数据
 dict_user_everyday_trash_blogs = {} #记录每个用户每天发的垃圾微博数量
 dict_user_everyday_trash_blogs_stats = {} #记录每个用户每天发的垃圾微博数量
+set_dates = set()
 
 #将时间格式转化为unix时间戳
 def date_time2unix_time(str_time):
@@ -40,7 +41,8 @@ def datas2file(input_data):
     elif str_filename in (USER_EVERYDAY_BLOGS_STATS_FILE, USER_EVERYDAY_TRASH_BLOGS_STATS_FILE):
         tuple_data = sorted(dict_data.items(), key = lambda d: d[1]['average'], reverse = True)
         for uname, stats in tuple_data:
-            f.write(FILE_SPLIT_STRING.join((uname, dict_username_usernickname[uname], str(stats['average']), str(stats['variance']))) + '\n')
+            f.write(FILE_SPLIT_STRING.join((uname, dict_username_usernickname[uname], str(stats['with_zero_average']), \
+                    str(stats['with_zero_variance']), str(stats['average']), str(stats['variance']))) + '\n')
     else:
         tuple_data = sorted(dict_data.items(), key = lambda d: d[1], reverse = True)
         for data_name, data_num in tuple_data:
@@ -83,6 +85,7 @@ def main():
         str_date = arr_line[PUBLISH_TIME_INDEX].split(" ")[0]
         int_publish_time = date_time2unix_time(arr_line[PUBLISH_TIME_INDEX])
         str_blog_length = str(len(str_blog_content) / 3)
+        set_dates.add(str_date)
 
         #建立用户名和用户昵称的映射表
         if str_user_name not in dict_username_usernickname:
@@ -119,6 +122,7 @@ def main():
             #清空处理
             dict_username_time[str_user_name] = []
 
+    dict_global_variable['total_dates'] = len(set_dates)
     #均值和方差的统计处理
     dict_blog_length_stats['average'], dict_blog_length_stats['variance'] = calculate_average_and_variance(stats_dict2list(dict_blog_length))
     stats_input = (
@@ -128,8 +132,12 @@ def main():
     for datas in stats_input:
         dict_raw, dict_stats = datas[0], datas[1]
         for key_uname, value_blogs in dict_raw.iteritems(): 
-            dict_stats[key_uname] = dict(average = 0, variance = 1)
-            dict_stats[key_uname]['average'], dict_stats[key_uname]['variance'] = calculate_average_and_variance([num for date, num in value_blogs.iteritems()])
+            dict_stats[key_uname] = dict(average = 0, variance = 1, with_zero_average = 0, with_zero_variance = 1)
+            dict_stats[key_uname]['average'], dict_stats[key_uname]['variance'] = \
+                    calculate_average_and_variance([num for date, num in value_blogs.iteritems()])
+            dict_stats[key_uname]['with_zero_average'], dict_stats[key_uname]['with_zero_variance'] = \
+                    calculate_average_and_variance([num for date, num in value_blogs.iteritems()] + \
+                    [0] * (dict_global_variable['total_dates'] - len(value_blogs)))
 
     #输出到文件
     input_datas = (
