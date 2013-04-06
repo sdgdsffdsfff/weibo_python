@@ -29,7 +29,19 @@ BLOG_LENGTH_FILE = EXPORT_PATH + '/blog_length.txt'
 BLOG_LENGTH_STATS_FILE = EXPORT_PATH + '/blog_length_stats.txt'
 
 #用户发微博总数的文件
-USER_TOTAL_BLOGS = EXPORT_PATH + '/user_total_blogs.txt'
+USER_TOTAL_BLOGS_FILE = EXPORT_PATH + '/user_total_blogs.txt'
+
+#每个用户每天发的微博数量
+USER_EVERYDAY_BLOGS_FILE = EXPORT_PATH + '/user_everyday_blogs.txt'
+
+#每个用户每天发的微博数量的统计数据
+USER_EVERYDAY_BLOGS_STATS_FILE = EXPORT_PATH + '/user_everyday_blogs_stats.txt'
+
+#每个用户每天发的垃圾微博数量
+USER_EVERYDAY_TRASH_BLOGS_FILE = EXPORT_PATH + '/user_everyday_trash_blogs.txt'
+
+#每个用户每天发的垃圾微博数量的统计数据
+USER_EVERYDAY_TRASH_BLOGS_STATS_FILE = EXPORT_PATH + '/user_everyday_trash_blogs_stats.txt'
 
 #文件中列与列的分隔符
 FILE_SPLIT_STRING = '|!|'
