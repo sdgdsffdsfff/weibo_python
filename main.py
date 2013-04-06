@@ -111,7 +111,8 @@ def main():
         #用户发布微博命中策略
         if dict_username_time[str_user_name][-1]['time'] - dict_username_time[str_user_name][0]['time'] <= STRATEGY_TIME:
             dict_user_everyday_trash_blogs[str_user_name] = dict_user_everyday_trash_blogs.get(str_user_name, {})
-            dict_user_everyday_trash_blogs[str_user_name][str_date] = dict_user_everyday_trash_blogs[str_user_name].get(str_date, 0) + STRATEGY_NUM
+            dict_user_everyday_trash_blogs[str_user_name][str_date] = \
+                    dict_user_everyday_trash_blogs[str_user_name].get(str_date, 0) + STRATEGY_NUM
             #每次命中策略，每条垃圾微博只算命中一次，所以需要去重处理
             set_content_temp = set()
             for blog_data in dict_username_time[str_user_name]:
@@ -124,7 +125,8 @@ def main():
 
     dict_global_variable['total_dates'] = len(set_dates)
     #均值和方差的统计处理
-    dict_blog_length_stats['average'], dict_blog_length_stats['variance'] = calculate_average_and_variance(stats_dict2list(dict_blog_length))
+    dict_blog_length_stats['average'], dict_blog_length_stats['variance'] = \
+            calculate_average_and_variance(stats_dict2list(dict_blog_length))
     stats_input = (
         (dict_user_everyday_blogs, dict_user_everyday_blogs_stats),
         (dict_user_everyday_trash_blogs, dict_user_everyday_trash_blogs_stats),
