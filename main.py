@@ -29,14 +29,13 @@ def datas2file(input_data):
     dict_data, str_filename = input_data[0], input_data[1]
     f = open(str_filename, 'w')
     if str_filename == BLOG_LENGTH_STATS_FILE:
-        f.write('average:' + str(dict_data['average']) + '\n' +
-                'variance:' + str(dict_data['variance']) + '\n')
+        f.write(str(dict_data['average']) + FILE_SPLIT_STRING + str(dict_data['variance']) + '\n')
     elif str_filename in (USER_EVERYDAY_BLOGS_FILE, USER_EVERYDAY_TRASH_BLOGS_FILE):
         for str_user_name, dict_everyday_blogs in dict_data.iteritems():
             tuple_data = sorted(dict_everyday_blogs.items(), key=lambda d: d[0])
             f.write(FILE_SPLIT_STRING.join((str_user_name, dict_username_usernickname[str_user_name])))
             for date, blogs in tuple_data:
-                f.write(FILE_SPLIT_STRING + date + " : " + str(blogs))
+                f.write(FILE_SPLIT_STRING + date + ":" + str(blogs))
             f.write('\n')
     elif str_filename in (USER_EVERYDAY_BLOGS_STATS_FILE, USER_EVERYDAY_TRASH_BLOGS_STATS_FILE):
         tuple_data = sorted(dict_data.items(), key = lambda d: d[1]['average'], reverse = True)
