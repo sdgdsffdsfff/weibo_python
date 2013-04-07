@@ -1,10 +1,20 @@
+<!--=============================================================================
+#     FileName: README.md
+#         Desc: 
+#       Author: lizherui
+#        Email: lzrak47m4a1@gmail.com
+#     HomePage: https://github.com/lizherui
+#      Version: 0.0.1
+#   LastChange: 2013-04-07 13:53:50
+#      History:
+=============================================================================-->
 weibo_python
 ============
 
 毕业设计中基于给定微博数据的垃圾微博识别，用python开发。
 
 进度：
-    只对MICRO_BLOG.txt进行了解析
+    对MICRO_BLOG.txt进行了解析
 
 程序运行：
     python main.py
