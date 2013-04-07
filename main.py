@@ -124,15 +124,12 @@ def main():
             del dict_username_time[str_user_name][0]
         #用户发布微博命中策略
         if dict_username_time[str_user_name][-1]['time'] - dict_username_time[str_user_name][0]['time'] <= STRATEGY_TIME:
+            dict_global_variable['total_trush_blogs'] = dict_global_variable.get('total_trush_blogs', 0) + 15
             dict_user_everyday_trash_blogs[str_user_name] = dict_user_everyday_trash_blogs.get(str_user_name, {})
             dict_user_everyday_trash_blogs[str_user_name][str_date] = \
                     dict_user_everyday_trash_blogs[str_user_name].get(str_date, 0) + STRATEGY_NUM
-            #每次命中策略，每条垃圾微博只算命中一次，所以需要去重处理
-            set_content_temp = set()
             for blog_data in dict_username_time[str_user_name]:
-                set_content_temp.add(blog_data['content'])
-            for content in set_content_temp:
-                dict_blog_blacklist[content] = dict_blog_blacklist.get(content, 0) + 1
+                dict_blog_blacklist[blog_data['content']] = dict_blog_blacklist.get(blog_data['content'], 0) + 1
             dict_user_blacklist[str_user_name] = dict_user_blacklist.get(str_user_name, 0) + 1
             #清空处理
             dict_username_time[str_user_name] = []
