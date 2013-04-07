@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#coding=utf-8
+# -*- coding: utf-8 -*-
 '''
 #=============================================================================
 #     FileName: main.py
@@ -8,7 +8,7 @@
 #        Email: lzrak47m4a1@gmail.com
 #     HomePage: https://github.com/lizherui
 #      Version: 0.0.1
-#   LastChange: 2013-04-07 13:49:40
+#   LastChange: 2013-04-07 14:48:03
 #      History:
 #=============================================================================
 '''
