@@ -152,6 +152,7 @@ def main():
                     calculate_average_and_variance([num for date, num in value_blogs.iteritems()] + \
                     [0] * (dict_global_variable['total_dates'] - len(value_blogs)))
 
+    print dict_global_variable['total_trush_blogs'];
     #输出到文件
     input_datas = (
         (dict_user_blacklist, USER_BLACKLIST_FILE),

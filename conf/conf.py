@@ -29,7 +29,7 @@ DATA_PATH = PROJECT_PATH + '/data'
 EXPORT_PATH = PROJECT_PATH + '/export'
 
 #微博主题路径
-MICRO_BLOG = DATA_PATH + '/MICRO_BLOG.txt'
+MICRO_BLOG = DATA_PATH +'/micro_blog_sort.txt'
 
 #用户黑名单文件
 USER_BLACKLIST_FILE = EXPORT_PATH + '/user_blacklist.txt'
